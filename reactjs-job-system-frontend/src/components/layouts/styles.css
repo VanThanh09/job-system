@@ -1,0 +1,250 @@
+/* Custom Header Styles */
+.custom-navbar {
+    background: white;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+.brand-logo {
+    text-decoration: none !important;
+}
+
+.brand-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: dark !important;
+}
+
+.nav-item-custom {
+    color: rgba(15, 15, 15, 0.699) !important;
+    font-weight: 400;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item-custom:hover {
+    color: rgba(15, 15, 15, 0.877) !important;
+    background-color: rgba(26, 26, 26, 0.13);
+    transform: translateY(-1px);
+}
+
+/* .login-btn {
+    color: rgba(15, 15, 15, 0.699) !important;
+    font-weight: 400;
+    padding: 0.3rem 0 !important;
+    margin-right: 1.2rem;
+    border-radius: 0px !important;
+    transition: all 0.3s ease;
+    border: none !important;
+}
+
+.login-btn:hover {
+    color: #0b8826 !important;
+    transform: translateY(-1px);
+    background-color: #fff;
+    border-bottom: 1px solid #0b8826 !important;
+    transition: all 0.3s ease;
+} */
+
+.navbar-toggler {
+    border: none !important;
+    padding: 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+/* Custom Footer Styles */
+.custom-footer {
+    background: #212121;
+    color: white;
+    margin-top: auto;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ecf0f1;
+    margin-bottom: 1rem;
+}
+
+.footer-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ecf0f1;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffffff;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.footer-description {
+    color: #bdc3c7;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffffff, #ffe1e1);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-links a:hover {
+    padding-left: 10px;
+}
+
+.footer-links a::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::before {
+    width: 5px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    color: #bdc3c7;
+}
+
+.contact-icon {
+    color: #ffffff;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.footer-divider {
+    border-color: #34495e;
+    margin: 0;
+}
+
+.copyright-text,
+.made-with-love {
+    color: #95a5a6;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.heart-icon {
+    color: #e74c3c;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .custom-navbar {
+        padding: 0.75rem 0;
+    }
+
+    .brand-text {
+        font-size: 1.5rem;
+    }
+
+    .nav-item-custom {
+        margin: 0.25rem 0;
+        text-align: center;
+    }
+
+    .nav-item-notif {
+        margin-right: 10px;
+        text-align: center;
+    }
+
+    .cta-button {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-subtitle {
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add some spacing for fixed navbar */
+body {
+    padding-top: 65px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+}

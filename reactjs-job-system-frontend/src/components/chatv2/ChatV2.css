@@ -1,0 +1,1302 @@
+.chatv2-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f2f5;
+  box-sizing: border-box;
+}
+
+.chatv2-container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  height: 85vh;
+  min-height: 500px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  /* keeps rounded corners; panel is inside so it scrolls internally */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #e5e7eb;
+}
+
+/* Sidebar / Conversation List */
+.chatv2-sidebar {
+  width: 320px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatv2-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.chatv2-sidebar-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #111827;
+  font-weight: 600;
+}
+
+.chatv2-conversation-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chatv2-conversation-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s ease;
+}
+
+.chatv2-conversation-item:hover {
+  background-color: #f9fafb;
+}
+
+.chatv2-conversation-item.active {
+  background-color: #eef2ff;
+  border-left: 4px solid #4f46e5;
+}
+
+.chatv2-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.chatv2-conv-info {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatv2-conv-name {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatv2-conv-lastmsg {
+  font-size: 0.85rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatv2-unread-badge {
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+
+/* Chat Main Screen */
+.chatv2-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fafb;
+}
+
+/* Header */
+.chatv2-main-header {
+  padding: 15px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatv2-header-user {
+  display: flex;
+  align-items: center;
+}
+
+.chatv2-avatar-medium {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  margin-right: 12px;
+}
+
+.chatv2-header-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.chatv2-header-info span {
+  font-size: 0.8rem;
+  color: #10b981;
+  /* Green for online */
+}
+
+.chatv2-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.chatv2-icon-btn {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  background-color: #f3f4f6;
+}
+
+.chatv2-icon-btn:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.chatv2-icon-btn.highlight {
+  color: #4f46e5;
+  background-color: #eef2ff;
+}
+
+.chatv2-icon-btn.highlight:hover {
+  background-color: #e0e7ff;
+}
+
+/* Messages Area */
+.chatv2-messages-area {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chatv2-message-wrapper {
+  display: flex;
+  align-items: flex-end;
+  max-width: 75%;
+}
+
+.chatv2-message-wrapper.mine {
+  align-self: flex-end;
+}
+
+.chatv2-message-wrapper.theirs {
+  align-self: flex-start;
+}
+
+.chatv2-avatar-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #d1d5db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4b5563;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.chatv2-message-bubble {
+  display: flex;
+  flex-direction: column;
+}
+
+.theirs .chatv2-message-bubble {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  padding: 12px 16px;
+  border-radius: 16px 16px 16px 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.mine .chatv2-message-bubble {
+  background-color: #4f46e5;
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chatv2-message-time {
+  font-size: 0.7rem;
+  margin-top: 4px;
+  opacity: 0.7;
+  text-align: right;
+}
+
+.mine .chatv2-message-time {
+  color: #e0e7ff;
+}
+
+.theirs .chatv2-message-time {
+  color: #9ca3af;
+}
+
+/* Input Area */
+.chatv2-input-area {
+  padding: 20px 24px;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chatv2-input-form {
+  display: flex;
+  align-items: center;
+  background-color: #f3f4f6;
+  border-radius: 24px;
+  padding: 8px 16px;
+}
+
+.chatv2-input-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.chatv2-input-form input::placeholder {
+  color: #9ca3af;
+}
+
+.chatv2-send-btn {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chatv2-send-btn:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+.chatv2-send-btn:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+/* Scrollbar tweaks */
+.chatv2-conversation-list::-webkit-scrollbar,
+.chatv2-messages-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatv2-conversation-list::-webkit-scrollbar-track,
+.chatv2-messages-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatv2-conversation-list::-webkit-scrollbar-thumb,
+.chatv2-messages-area::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 10px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===================== Meeting Panel ===================== */
+.chatv2-meeting-panel {
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  /* hides content while sliding in */
+  background-color: #ffffff;
+  border-left: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  /* height is constrained by the flex parent (.chatv2-container) */
+  max-height: 100%;
+  /* never taller than the chat container */
+  transition: width 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    min-width 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.chatv2-meeting-panel.open {
+  width: 320px;
+  min-width: 320px;
+}
+
+/* Panel Header */
+.chatv2-meeting-panel-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chatv2-meeting-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4f46e5;
+}
+
+.chatv2-meeting-panel-title h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.chatv2-meeting-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.chatv2-meeting-close-btn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* Filter Tabs */
+.chatv2-meeting-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.chatv2-meeting-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6b7280;
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.chatv2-meeting-tab:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.chatv2-meeting-tab.active {
+  background-color: #eef2ff;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+/* Meeting List — scrollable, takes remaining height between tabs and footer */
+.chatv2-meeting-list {
+  flex: 1;
+  overflow-y: auto;
+  /* scroll when cards exceed available height */
+  min-height: 0;
+  /* critical: allows flex child to shrink and scroll */
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Meeting Card */
+.chatv2-meeting-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.chatv2-meeting-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.chatv2-meeting-card.status-ongoing {
+  border-left: 3px solid #10b981;
+  background-color: #f0fdf4;
+}
+
+.chatv2-meeting-card.status-upcoming {
+  border-left: 3px solid #4f46e5;
+  background-color: #fafafe;
+}
+
+.chatv2-meeting-card.status-done {
+  border-left: 3px solid #d1d5db;
+  opacity: 0.85;
+}
+
+/* Card Top Row */
+.chatv2-meeting-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.chatv2-meeting-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.chatv2-meeting-duration {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Card Title */
+.chatv2-meeting-title {
+  margin: 0 0 8px 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card Meta */
+.chatv2-meeting-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.chatv2-meeting-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Card Footer */
+.chatv2-meeting-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chatv2-meeting-participants {
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.chatv2-meeting-join-btn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chatv2-meeting-join-btn:hover {
+  background-color: #059669;
+}
+
+.chatv2-meeting-join-btn.upcoming {
+  background-color: transparent;
+  color: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+.chatv2-meeting-join-btn.upcoming:hover {
+  background-color: #eef2ff;
+}
+
+/* Panel Footer */
+.chatv2-meeting-panel-footer {
+  padding: 14px 16px;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.chatv2-new-meeting-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.chatv2-new-meeting-btn:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+/* Scrollbar for meeting list */
+.chatv2-meeting-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chatv2-meeting-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatv2-meeting-list::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 10px;
+}
+
+/* Ongoing pulse animation */
+.chatv2-meeting-card.status-ongoing .chatv2-meeting-status-badge {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0);
+  }
+}
+
+/* Empty state */
+.chatv2-meeting-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  padding: 24px;
+  text-align: center;
+}
+
+/* ===================== Interview Panel ===================== */
+.interview-panel {
+  width: 300px;
+  min-width: 300px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-left: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.interview-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #f0f4ff 0%, #f9fafb 100%);
+  flex-shrink: 0;
+}
+
+.interview-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4f46e5;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.interview-panel-refresh-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.interview-panel-refresh-btn:hover {
+  background-color: #e5e7eb;
+  color: #4f46e5;
+}
+
+.interview-panel-refresh-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Tabs */
+.interview-panel-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #f3f4f6;
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.interview-panel-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.interview-panel-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  padding: 4px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.18s;
+}
+
+.interview-panel-tab:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.interview-panel-tab.active {
+  background-color: #eef2ff;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+/* List (scrollable) */
+.interview-panel-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.interview-panel-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.interview-panel-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.interview-panel-list::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+  border-radius: 10px;
+}
+
+/* Empty / Loading */
+.interview-panel-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.83rem;
+  color: #9ca3af;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+/* Interview Card */
+.interview-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: box-shadow 0.2s, transform 0.18s;
+  border-left: 3px solid #d1d5db;
+}
+
+.interview-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  transform: translateY(-1px);
+}
+
+.interview-card.status-ongoing {
+  border-left-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.interview-card.status-upcoming {
+  border-left-color: #4f46e5;
+  background-color: #fafafe;
+}
+
+.interview-card.status-done {
+  border-left-color: #d1d5db;
+  opacity: 0.8;
+}
+
+.interview-card.status-cancelled {
+  border-left-color: #ef4444;
+  opacity: 0.75;
+}
+
+/* Card Top */
+.interview-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.interview-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 12px;
+}
+
+.interview-duration {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+/* Card Title */
+.interview-card-title {
+  margin: 0 0 7px 0;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card Meta */
+.interview-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.interview-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  color: #6b7280;
+}
+
+/* Card Footer */
+.interview-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.interview-join-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.interview-join-btn.ongoing {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.interview-join-btn.ongoing:hover {
+  background-color: #059669;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+}
+
+.interview-join-btn.pending {
+  background-color: transparent;
+  color: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+.interview-join-btn.pending:hover {
+  background-color: #eef2ff;
+}
+
+.interview-done-label {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Ongoing pulse animation */
+.interview-card.status-ongoing .interview-status-badge {
+  animation: interview-pulse 2s infinite;
+}
+
+@keyframes interview-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+  }
+}
+
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+/* ===================== Schedule Interview Button ===================== */
+.iv-schedule-btn {
+  color: #4f46e5 !important;
+  background-color: #eef2ff !important;
+  border: 1px solid #c7d2fe;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.iv-schedule-btn:hover {
+  background-color: #e0e7ff !important;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  transform: scale(1.06);
+}
+
+/* ===================== Create Interview Modal ===================== */
+.iv-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: iv-fade-in 0.18s ease;
+}
+
+@keyframes iv-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.iv-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+  animation: iv-slide-up 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+@keyframes iv-slide-up {
+  from { transform: translateY(24px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0)    scale(1);    opacity: 1; }
+}
+
+/* --- Header --- */
+.iv-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 14px;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+}
+
+.iv-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.iv-modal-close {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.iv-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Candidate badge --- */
+.iv-modal-candidate {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  background-color: #f8faff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.iv-candidate-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e0e7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f46e5;
+  flex-shrink: 0;
+}
+
+.iv-candidate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.iv-candidate-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.iv-candidate-label {
+  font-size: 0.74rem;
+  color: #6b7280;
+}
+
+/* --- Form --- */
+.iv-modal-form {
+  padding: 18px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.iv-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.iv-form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.iv-form-group input {
+  padding: 9px 12px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #111827;
+  background-color: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.iv-form-group input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+  background-color: #ffffff;
+}
+
+.iv-form-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.iv-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* Payload preview */
+.iv-payload-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.iv-payload-preview code {
+  font-size: 0.74rem;
+  color: #4f46e5;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+}
+
+/* Error */
+.iv-form-error {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Success */
+.iv-form-success {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  color: #16a34a;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Actions */
+.iv-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.iv-btn-cancel {
+  background: #f3f4f6;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.iv-btn-cancel:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.iv-btn-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.iv-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #ffffff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.iv-btn-submit:hover:not(:disabled) {
+  opacity: 0.92;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  transform: translateY(-1px);
+}
+
+.iv-btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===================== Join Error Modal ===================== */
+.iv-join-error-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 360px;
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.1);
+  animation: iv-slide-up 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.iv-join-error-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fef2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  margin-bottom: 4px;
+}
+
+.iv-join-error-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.iv-join-error-message {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.55;
+}
+
+.iv-join-error-btn {
+  margin-top: 8px;
+  padding: 10px 28px;
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.iv-join-error-btn:hover {
+  background: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+}
