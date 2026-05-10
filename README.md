@@ -14,7 +14,17 @@ password: 123456
 
 database_name: jobdjango
 ```
-**Front-end:** Đang triển khai (Deploying...)
+**Front-end:** https://vieclammoi.site/
+
+## Thông Tin Tài Khoản Đăng Nhập 
+
+Hệ thống được phân quyền với các vai trò khác nhau. Dưới đây là các tài khoản demo để sử dụng và kiểm thử hệ thống:
+
+| Tài khoản (Tên đăng nhập / Email) | Mật khẩu | Vai trò (Role) | Quyền hạn & Chức năng chính |
+| :--- | :--- | :--- | :--- |
+| admin | 123 | **ADMIN** | Link: **http://3.24.182.254/admin** .Quản trị toàn bộ hệ thống, xem thống kê doanh thu, quản lý danh mục, quản lý người dùng, xét duyệt hồ sơ công ty đăng ký mới, quản lý cấu hình hệ thống và mức phí. |
+| employer | 123 | **EMPLOYER** | **Nhà tuyển dụng**: Cập nhật hồ sơ công ty, đăng tin tuyển dụng (có tính phí qua Stripe), xem và quản lý CV ứng tuyển, nhận gợi ý ứng viên phù hợp bằng AI, chat với ứng viên, tạo phòng phỏng vấn trực tuyến (qua Daily.co), đánh giá ứng viên. |
+| candidate | 123 | **CANDIDATE** | **Ứng viên**: Cập nhật thông tin cá nhân/CV, tìm kiếm việc làm, ứng tuyển, nhận gợi ý việc làm bằng AI, theo dõi công ty, đánh giá công ty, chat với nhà tuyển dụng, tham gia phỏng vấn trực tuyến. |
 
 ## 1. Các Chức Năng Chính (Features)
 
@@ -163,13 +173,3 @@ Cấu hình local hook tại  `reactjs-job-system-frontend\src\configs\Apis.js`
 ```
 const BASE_URL = "<Your-local-host>" #Example: http://127.0.0.1:8000/
 ```
-
-## 5. Thông Tin Tài Khoản Đăng Nhập 
-
-Hệ thống được phân quyền với các vai trò khác nhau. Dưới đây là các tài khoản demo để sử dụng và kiểm thử hệ thống:
-
-| Tài khoản (Tên đăng nhập / Email) | Mật khẩu | Vai trò (Role) | Quyền hạn & Chức năng chính |
-| :--- | :--- | :--- | :--- |
-| admin | 123 | **ADMIN** | Link: **http://3.24.182.254/admin** .Quản trị toàn bộ hệ thống, xem thống kê doanh thu, quản lý danh mục, quản lý người dùng, xét duyệt hồ sơ công ty đăng ký mới, quản lý cấu hình hệ thống và mức phí. |
-| employer | 123 | **EMPLOYER** | **Nhà tuyển dụng**: Cập nhật hồ sơ công ty, đăng tin tuyển dụng (có tính phí qua Stripe), xem và quản lý CV ứng tuyển, nhận gợi ý ứng viên phù hợp bằng AI, chat với ứng viên, tạo phòng phỏng vấn trực tuyến (qua Daily.co), đánh giá ứng viên. |
-| candidate | 123 | **CANDIDATE** | **Ứng viên**: Cập nhật thông tin cá nhân/CV, tìm kiếm việc làm, ứng tuyển, nhận gợi ý việc làm bằng AI, theo dõi công ty, đánh giá công ty, chat với nhà tuyển dụng, tham gia phỏng vấn trực tuyến. |
