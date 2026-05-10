@@ -44,8 +44,6 @@ database_name: jobdjango
 
 ## 2. Sơ Đồ Kiến Trúc Hệ Thống (System Architecture Diagram)
 
-#### Image url: https://res.cloudinary.com/drzc4fmxb/image/upload/v1778417307/structure_phan_bien_khoa_luan_og8cbo.png
-
 ![system-struture](https://res.cloudinary.com/drzc4fmxb/image/upload/v1778417307/structure_phan_bien_khoa_luan_og8cbo.png)
 
 ## 3. Công Nghệ Sử Dụng (Tech Stack)
