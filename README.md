@@ -1,4 +1,4 @@
-# Hệ Thống Quản Lý Tuyển Dụng (Job System)
+# HỆ THỐNG QUẢN LÝ TÌM KIẾM VIỆC LÀM
 
 Hệ thống quản lý tuyển dụng trực tuyến toàn diện kết nối ứng viên và nhà tuyển dụng, tích hợp tính năng gợi ý việc làm/ứng viên thông minh bằng AI (FAISS/Transformers), trò chuyện trực tuyến (Realtime Chat), phỏng vấn trực tuyến (Video Call), và hệ thống thanh toán (Stripe).
 
