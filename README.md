@@ -112,6 +112,8 @@ docker-compose --build
 docker-compose up -d
 ```
 
+**App đã chạy xong bỏ qua các bước còn lại. Nếu không dùng docker bỏ qua bước này chuyển sang bước 4**
+
 #### 4. Run services locally (development)
 
 ```bash
@@ -123,14 +125,31 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-#### 5. Database Migration
+#### 5. Database Setup
+1. **Install MySQL**:
+
+    - For Linux:
+
+        ```sh
+        sudo apt-get install mysql-server
+        ```
+
+    - For Windows: Download and install MySQL from [here](https://dev.mysql.com/downloads/installer/).
+
+2. **Login to MySQL**:
+   
+    Trong project sử dụng user 'root' với password '123456' và database name 'jobdjango'
+   
+    Cấu hình config database riêng ở `.env`
+
+#### 6. **Database Migration**
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-#### 6. Start server & Celery worker
+#### 7. Start server & Celery worker
 
 ```bash
 # Start server
